@@ -1,13 +1,37 @@
-import type { ReactNode } from "react";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
-export default function PublicLayout({ children }: { children: ReactNode }) {
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Harleys Realtor",
+  description:
+    "Premium real estate website for sales, lettings, management, and consultancy.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-    </div>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full`}
+    >
+      <body suppressHydrationWarning className="min-h-full flex flex-col antialiased">
+        {children}
+      </body>
+    </html>
   );
 }

@@ -2,14 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Root theme */
 :root {
-  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white text-ink antialiased;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,h2,h3,h4 {
-  @apply tracking-tight;
+/* Typography */
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+/* Utility tones */
+.text-muted {
+  color: #6b7280;
+}
+
+.bg-surface {
+  background-color: #f9fafb;
+}
+
+.border-border {
+  border-color: #e5e7eb;
+}
+
+/* Brand */
+.text-brand-500 {
+  color: #e71212;
+}
+
+.bg-brand-500 {
+  background-color: #e71212;
+}
+
+.text-brand-700 {
+  color: #b90f0f;
 }
