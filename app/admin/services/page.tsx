@@ -1,8 +1,5 @@
-export default function Page() {
-  return (
-    <section>
-      <h1 className="text-3xl font-semibold">Services</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for services.</p>
-    </section>
-  );
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminServicesPage() {
+  return <section><AdminTopbar title="Services" /><div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Service CRUD scaffold.</div></section>;
 }

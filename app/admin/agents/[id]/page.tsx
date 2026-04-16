@@ -1,8 +1,5 @@
-export default function Page() {
-  return (
-    <section>
-      <h1 className="text-3xl font-semibold">Edit</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for agents/[id].</p>
-    </section>
-  );
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminAgentEditPage() {
+  return <section><AdminTopbar title="Edit Agent" /><div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Edit agent form scaffold.</div></section>;
 }

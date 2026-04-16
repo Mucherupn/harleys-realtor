@@ -1,8 +1,10 @@
-export default function Page() {
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminBlogNewPage() {
   return (
     <section>
-      <h1 className="text-3xl font-semibold">New</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for blog/new.</p>
+      <AdminTopbar title="Create Blog Post" />
+      <div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Post editor scaffold with publish toggle and cover image upload placeholder.</div>
     </section>
   );
 }

@@ -1,8 +1,10 @@
-export default function Page() {
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminPropertyNewPage() {
   return (
     <section>
-      <h1 className="text-3xl font-semibold">New</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for properties/new.</p>
+      <AdminTopbar title="Create Property" />
+      <div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Form scaffold includes all required fields: title, slug, pricing, location, amenities, media, SEO, and assignment.</div>
     </section>
   );
 }

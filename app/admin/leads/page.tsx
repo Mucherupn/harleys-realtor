@@ -1,8 +1,10 @@
-export default function Page() {
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminLeadsPage() {
   return (
     <section>
-      <h1 className="text-3xl font-semibold">Leads</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for leads.</p>
+      <AdminTopbar title="Leads" />
+      <div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Inquiry pipeline scaffold with status updates and notes column placeholder.</div>
     </section>
   );
 }

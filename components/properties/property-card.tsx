@@ -1,23 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Property } from "@/types";
+import { formatCurrencyKES, imageAltFallback } from "@/lib/utils/formatters";
 
 export function PropertyCard({ property }: { property: Property }) {
   return (
-    <article className="overflow-hidden rounded-premium border border-border bg-white shadow-premium">
-      <Image
-        src={property.cover_image_url ?? "https://images.unsplash.com/photo-1560518883-ce09059eeffa"}
-        alt={property.title}
-        width={640}
-        height={420}
-        className="h-52 w-full object-cover"
-      />
-      <div className="space-y-3 p-5">
-        <p className="text-xs uppercase tracking-wider text-brand-700">For {property.purpose}</p>
-        <h3 className="text-lg font-semibold">{property.title}</h3>
-        <p className="text-sm text-muted">{property.bedrooms} Bed • {property.bathrooms} Bath • {property.neighborhood}</p>
-        <p className="text-xl font-bold">{property.currency} {property.price.toLocaleString()}</p>
-        <Link href={`/properties/${property.slug}`} className="text-sm font-medium text-brand-700">View Property →</Link>
+    <article className="overflow-hidden rounded-premium border border-border bg-white shadow-sm">
+      <div className="relative h-56">
+        <Image src={property.cover_image_url ?? "https://images.unsplash.com/photo-1560185008-b033106af5c3"} alt={imageAltFallback(property.title)} fill className="object-cover" />
+      </div>
+      <div className="space-y-2 p-5">
+        <p className="text-xs uppercase tracking-[0.15em] text-brand-500">For {property.purpose}</p>
+        <h3 className="text-lg font-semibold"><Link href={`/properties/${property.slug}`}>{property.title}</Link></h3>
+        <p className="text-sm text-muted">{property.neighborhood ?? "Nairobi"}</p>
+        <p className="font-semibold">{formatCurrencyKES(property.price)}</p>
+        <p className="text-sm text-muted">{property.bedrooms} bed • {property.bathrooms} bath</p>
       </div>
     </article>
   );

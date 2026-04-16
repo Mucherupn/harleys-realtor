@@ -1,8 +1,5 @@
-export default function Page() {
-  return (
-    <section>
-      <h1 className="text-3xl font-semibold">New</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for agents/new.</p>
-    </section>
-  );
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminAgentNewPage() {
+  return <section><AdminTopbar title="Create Agent" /><div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Create agent form scaffold.</div></section>;
 }

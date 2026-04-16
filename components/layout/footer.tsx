@@ -1,17 +1,27 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
-    <footer className="bg-premium text-white">
-      <div className="mx-auto grid max-w-container gap-6 px-4 py-14 md:px-8 md:grid-cols-3">
-        <div>
-          <h3 className="text-lg font-semibold">Harleys Realtor</h3>
-          <p className="mt-2 text-sm text-white/80">Premium Nairobi real estate across sales, lettings, management, and consultancy.</p>
+    <footer className="border-t border-border bg-white">
+      <div className="mx-auto grid max-w-container gap-10 px-4 py-16 md:grid-cols-4 md:px-8">
+        <div className="md:col-span-2">
+          <p className="text-lg font-semibold">Harleys Realtor</p>
+          <p className="mt-3 max-w-md text-sm text-muted">A premium Nairobi real estate partner for sales, lettings, management, and consultancy.</p>
         </div>
         <div>
-          <p className="text-sm">Phone: +254 700 000 000</p>
-          <p className="text-sm">Email: info@harleysrealtor.co.ke</p>
+          <p className="text-sm font-semibold">Company</p>
+          <ul className="mt-3 space-y-2 text-sm text-muted">
+            <li><Link href="/about">About</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/team">Team</Link></li>
+          </ul>
         </div>
         <div>
-          <p className="text-sm text-white/80">© {new Date().getFullYear()} Harleys Realtor. All rights reserved.</p>
+          <p className="text-sm font-semibold">Legal</p>
+          <ul className="mt-3 space-y-2 text-sm text-muted">
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link href="/terms">Terms</Link></li>
+          </ul>
         </div>
       </div>
     </footer>
