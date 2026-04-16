@@ -1,23 +1,22 @@
-# Harleys Realtor — Premium Next.js + Supabase Platform Scaffold
+# Harleys Realtor — Premium Next.js + Supabase Scaffold
 
-This repository is a production-minded rebuild scaffold for Harleys Realtor, using:
+Production-minded real estate platform starter for a Nairobi-focused brokerage, built with:
 
-- **Next.js App Router + TypeScript + Tailwind CSS**
-- **Supabase Postgres + Auth + Storage**
-- **Vercel deployment target** with Cloudflare DNS/security in mind
+- Next.js App Router + TypeScript + Tailwind CSS
+- Supabase Postgres + Auth + Storage
+- Public marketing site + protected admin workspace
 
-## Features Included
+## What is included
 
-- Premium public website scaffold (home, about, services, listings, detail pages, locations, team, blog, contact, quote, valuation, legal)
-- Admin scaffold under `/admin` with protected route middleware and module pages
-- Supabase clients for browser/server/admin service role usage
-- API routes for contact, inquiry, quote, valuation, upload placeholder, and revalidation
-- SQL migration for full requested schema + indexes + RLS baseline + updated_at triggers + storage buckets
-- Seed placeholders for key taxonomies and services
-- SEO baseline with metadata builder, sitemap, robots, and structured-data helpers
-- Utilities for slug generation, KES currency formatting, class merging, image alt fallback, and query filter parsing
+- Premium public pages: home, services, properties, locations, team, blog, contact, quote, valuation, legal
+- Admin area under `/admin` with login gate, dashboard, and CRUD scaffolds
+- API routes for contact, inquiry, valuation, and quote capture
+- Supabase clients for browser, server, and service-role admin usage
+- SQL migration with UUID keys, triggers, indexes, and baseline RLS
+- SEO helpers: metadata builder, sitemap, robots, and structured data
+- Reusable UI primitives (buttons, cards, forms, badges, stat cards, skeletons, etc.)
 
-## Project Setup
+## Local setup
 
 1. Install dependencies
 
@@ -25,54 +24,56 @@ This repository is a production-minded rebuild scaffold for Harleys Realtor, usi
 npm install
 ```
 
-2. Create local env file
+2. Copy environment template
 
 ```bash
 cp .env.example .env.local
 ```
 
-3. Fill in `.env.local` values.
+3. Fill `.env.local`
 
-4. Run the app
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
+RESEND_API_KEY=
+CONTACT_EMAIL_TO=
+```
+
+4. Run development server
 
 ```bash
 npm run dev
 ```
 
-The homepage should immediately show the custom Harleys premium design (not the default Next.js starter).
+Open `http://localhost:3000`.
 
-## Environment Variables
+## Supabase connection and migrations
 
-See `.env.example`:
-
-- `NEXT_PUBLIC_SITE_URL`
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`
-- `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`
-- `RESEND_API_KEY`
-- `CONTACT_EMAIL_TO`
-
-## Supabase Connection
-
-- Create a Supabase project
-- Add URL and keys to `.env.local`
-- Run SQL migration in `supabase/migrations/20260416090000_init.sql`
-- Optionally run `supabase/seed.sql`
-- Ensure Auth users used for admin login
-
-## Migrations
-
-If using Supabase CLI:
+1. Create a Supabase project.
+2. Add project URL and keys to `.env.local`.
+3. Run migrations:
 
 ```bash
 supabase db push
 ```
 
-or run the SQL files manually in Supabase SQL Editor.
+or execute SQL files manually:
 
-## Notes
+- `supabase/migrations/20260416090000_init.sql`
+- `supabase/seed.sql` (optional sample content)
 
-- All pages are scaffolded with premium placeholders and can be CMS-driven from Supabase.
-- Admin CRUD views are production-structured placeholders intended for iterative hardening.
-- API routes already validate payloads with Zod and write to Supabase tables.
+### Storage buckets expected
+
+- `property-images`
+- `agent-images`
+- `blog-images`
+- `site-assets`
+
+## Auth assumptions
+
+- Admin pages (`/admin/*`) require an authenticated session cookie.
+- Non-authenticated users are redirected to `/admin/login`.
+- Supabase Auth user records can be mapped to local `profiles`.

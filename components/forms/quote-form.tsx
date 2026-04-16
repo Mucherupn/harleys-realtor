@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { quoteSchema } from "@/lib/validators/forms";
 import { Button } from "@/components/ui/button";
-import { Input, TextArea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 type QuoteValues = z.infer<typeof quoteSchema>;
 
@@ -21,7 +22,7 @@ export function QuoteForm() {
       <Input {...register("email")} placeholder="Email" />
       <Input {...register("phone")} placeholder="Phone" />
       <Input {...register("serviceType")} placeholder="Service type" />
-      <TextArea {...register("message")} placeholder="Tell us about your requirements" className="min-h-28" />
+      <Textarea {...register("message")} placeholder="Tell us about your requirements" className="min-h-28" />
       <Button type="submit" disabled={isSubmitting}>{isSubmitting ? "Submitting" : "Request Quote"}</Button>
     </form>
   );

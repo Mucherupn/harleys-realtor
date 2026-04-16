@@ -6,7 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { contactSchema } from "@/lib/validators/forms";
 import { Button } from "@/components/ui/button";
-import { Input, TextArea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 type FormValues = z.infer<typeof contactSchema>;
 
@@ -29,7 +30,7 @@ export function ContactForm() {
       {errors.name ? <p className="text-xs text-brand-700">Please enter your full name.</p> : null}
       <Input {...register("email")} type="email" placeholder="Email" />
       <Input {...register("phone")} placeholder="Phone" />
-      <TextArea {...register("message")} placeholder="Tell us what you need" className="min-h-28" />
+      <Textarea {...register("message")} placeholder="Tell us what you need" className="min-h-28" />
       <Button type="submit" disabled={isSubmitting}>{isSubmitting ? "Sending..." : "Send message"}</Button>
       {message ? <p className="text-sm text-muted">{message}</p> : null}
     </form>

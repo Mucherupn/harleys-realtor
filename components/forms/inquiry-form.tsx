@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { inquirySchema } from "@/lib/validators/forms";
 import { Button } from "@/components/ui/button";
-import { Input, TextArea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 type InquiryValues = z.infer<typeof inquirySchema>;
 
@@ -24,7 +25,7 @@ export function InquiryForm({ propertyId }: { propertyId?: string }) {
       <Input {...register("name")} placeholder="Full name" />
       <Input {...register("email")} placeholder="Email" type="email" />
       <Input {...register("phone")} placeholder="Phone" />
-      <TextArea {...register("message")} placeholder="I am interested in this listing..." className="min-h-24" />
+      <Textarea {...register("message")} placeholder="I am interested in this listing..." className="min-h-24" />
       <Button type="submit" disabled={isSubmitting}>{isSubmitting ? "Sending" : "Submit Inquiry"}</Button>
     </form>
   );
