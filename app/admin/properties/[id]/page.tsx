@@ -1,8 +1,10 @@
-export default function Page() {
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminPropertyEditPage() {
   return (
     <section>
-      <h1 className="text-3xl font-semibold">Edit</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for properties/[id].</p>
+      <AdminTopbar title="Edit Property" />
+      <div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Edit listing scaffold with save draft, publish, feature toggle, and upload management placeholders.</div>
     </section>
   );
 }

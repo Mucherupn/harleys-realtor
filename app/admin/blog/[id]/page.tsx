@@ -1,8 +1,10 @@
-export default function Page() {
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminBlogEditPage() {
   return (
     <section>
-      <h1 className="text-3xl font-semibold">Edit</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for blog/[id].</p>
+      <AdminTopbar title="Edit Blog Post" />
+      <div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Edit post scaffold with SEO controls.</div>
     </section>
   );
 }

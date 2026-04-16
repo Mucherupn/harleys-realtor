@@ -1,8 +1,5 @@
-export default function Page() {
-  return (
-    <section>
-      <h1 className="text-3xl font-semibold">Locations</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for locations.</p>
-    </section>
-  );
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminLocationsPage() {
+  return <section><AdminTopbar title="Locations" /><div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Location CRUD scaffold.</div></section>;
 }

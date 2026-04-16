@@ -1,8 +1,12 @@
-export default function Page() {
+import Link from "next/link";
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminPropertiesPage() {
   return (
     <section>
-      <h1 className="text-3xl font-semibold">Properties</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for properties.</p>
+      <AdminTopbar title="Properties" />
+      <Link href="/admin/properties/new" className="rounded-md bg-brand-500 px-4 py-2 text-sm font-semibold text-white">New Property</Link>
+      <div className="mt-6 rounded-premium border border-border bg-white p-5 text-sm text-muted">CRUD table scaffold with draft/publish, feature toggle, delete, duplicate, preview, and image ordering placeholders.</div>
     </section>
   );
 }

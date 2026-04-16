@@ -1,8 +1,5 @@
-export default function Page() {
-  return (
-    <section>
-      <h1 className="text-3xl font-semibold">Media</h1>
-      <p className="mt-2 text-sm text-muted">Scaffolded admin module for media.</p>
-    </section>
-  );
+import { AdminTopbar } from "@/components/admin/topbar";
+
+export default function AdminMediaPage() {
+  return <section><AdminTopbar title="Media Library" /><div className="rounded-premium border border-border bg-white p-5 text-sm text-muted">Supabase storage management placeholder for property-images, agent-images, blog-images, and site-assets.</div></section>;
 }
