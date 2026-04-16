@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { valuationSchema } from "@/lib/validators/forms";
 import { Button } from "@/components/ui/button";
-import { Input, TextArea } from "@/components/ui/input";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 type ValuationValues = z.infer<typeof valuationSchema>;
 
@@ -22,7 +23,7 @@ export function ValuationForm() {
       <Input {...register("phone")} placeholder="Phone" />
       <Input {...register("propertyType")} placeholder="Property type" />
       <Input {...register("location")} placeholder="Location" />
-      <TextArea {...register("message")} placeholder="Share details for valuation" className="min-h-28" />
+      <Textarea {...register("message")} placeholder="Share details for valuation" className="min-h-28" />
       <Button type="submit" disabled={isSubmitting}>{isSubmitting ? "Submitting" : "Request Valuation"}</Button>
     </form>
   );
